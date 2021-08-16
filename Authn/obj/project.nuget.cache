@@ -1,8 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "s5mJj53KeXYkpfzP3ljpUX3hntKojsuNIGuWsPlu3SSgB6ID/cQ7OzhPfyPgqq3qX7geHsh99DtG9jJMsn/Atg==",
+  "dgSpecHash": "q3IxQaY+Lub3KtmP3oBgrjpm4FJ8OgjEU5hmG4SB2c3hd8DRpipygAbIPK5M+5qrAF3QAG7yRhyavpLtQdcITA==",
   "success": true,
   "projectFilePath": "C:\\JangDoc\\AspDotNet\\Authn\\Authn\\Authn\\Authn.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.9\\microsoft.aspnetcore.authentication.google.5.0.9.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.9\\microsoft.aspnetcore.authentication.openidconnect.5.0.9.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.7.1\\microsoft.identitymodel.jsonwebtokens.6.7.1.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.identitymodel.logging\\6.7.1\\microsoft.identitymodel.logging.6.7.1.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.7.1\\microsoft.identitymodel.protocols.6.7.1.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.7.1\\microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.7.1\\microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.7.1\\system.identitymodel.tokens.jwt.6.7.1.nupkg.sha512",
+    "C:\\Users\\jangb\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

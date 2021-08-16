@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,36 +28,72 @@ namespace Authn
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(option =>
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                //options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = "GoogleOpenID";
+            })
+                .AddCookie(options =>
                 {
-                    option.LoginPath = "/login";
-                    option.AccessDeniedPath = "/denied";
-                    option.Events = new CookieAuthenticationEvents()
+                    options.LoginPath = "/login";
+                    options.AccessDeniedPath = "/denied";
+                })
+                .AddOpenIdConnect("GoogleOpenID", options =>
+                {
+                    options.Authority = "https://accounts.google.com";
+                    options.ClientId = "gcp에서 생성한 클라이언트 ID를 입력";
+                    options.ClientSecret = "클라이언트 ID의 보안번호";
+                    options.CallbackPath = "/auth";
+                    options.SaveTokens = true;
+                    options.Events = new OpenIdConnectEvents()
                     {
-                        OnSigningIn = async context =>
+                        OnTokenValidated = async context =>
                         {
-                            var principal = context.Principal;
-                            if (principal.HasClaim(c=>c.Type == ClaimTypes.NameIdentifier))
+                            //var myclaim = context.Principal.Claims; // 디비깅 후 삭제할 것
+                            if (context.Principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "사용자식별번호")
                             {
-                                if(principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "jbs")
-                                {
-                                    var claimsIdentity = principal.Identity as ClaimsIdentity;
-                                    claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
-                                }
+                                var claim = new Claim(ClaimTypes.Role, "Admin");
+                                var claimsIdentity = context.Principal.Identity as ClaimsIdentity;
+                                claimsIdentity.AddClaim(claim);
                             }
-                            await Task.CompletedTask;
-                        },
-                        OnSignedIn = async context =>
-                        {
-                            await Task.CompletedTask;
-                        },
-                        OnValidatePrincipal = async context =>
-                        {
-                            await Task.CompletedTask;
                         }
                     };
                 });
+
+                //.AddGoogle(options =>
+                //{
+                //    options.ClientId = "37474395668-96i7406is845gr8ht4ffk42mkilrecpe.apps.googleusercontent.com";
+                //    options.ClientSecret = "W6tNNmfQutuzLU6L1WFGaRCL";
+                //    options.CallbackPath = "/auth";
+                //    options.AuthorizationEndpoint += "?prompt=consent";
+                //});
+
+                //    option.Events = new CookieAuthenticationEvents()
+                //    {
+                //        OnSigningIn = async context =>
+                //        {
+                //            var principal = context.Principal;
+                //            if (principal.HasClaim(c=>c.Type == ClaimTypes.NameIdentifier))
+                //            {
+                //                if(principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value == "jbs")
+                //                {
+                //                    var claimsIdentity = principal.Identity as ClaimsIdentity;
+                //                    claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
+                //                }
+                //            }
+                //            await Task.CompletedTask;
+                //        },
+                //        OnSignedIn = async context =>
+                //        {
+                //            await Task.CompletedTask;
+                //        },
+                //        OnValidatePrincipal = async context =>
+                //        {
+                //            await Task.CompletedTask;
+                //        }
+                //    };
+                //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

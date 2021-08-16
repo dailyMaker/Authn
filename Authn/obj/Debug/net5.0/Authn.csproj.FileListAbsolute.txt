@@ -42,3 +42,11 @@ C:\JangDoc\AspDotNet\Authn\Authn\Authn\obj\Debug\net5.0\Razor\Views\Home\Login.c
 C:\JangDoc\AspDotNet\Authn\Authn\Authn\obj\Debug\net5.0\Razor\Views\Home\Logout.cshtml.g.cs
 C:\JangDoc\AspDotNet\Authn\Authn\Authn\obj\Debug\net5.0\Razor\Views\Home\Secured.cshtml.g.cs
 C:\JangDoc\AspDotNet\Authn\Authn\Authn\obj\Debug\net5.0\Razor\Views\Home\Denied.cshtml.g.cs
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\JangDoc\AspDotNet\Authn\Authn\Authn\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
